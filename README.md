@@ -1,1 +1,1 @@
-# SeleniumAutomation
+# SeleniumTraining
