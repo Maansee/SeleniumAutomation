@@ -52,6 +52,19 @@ public class UpdatedDropdown {
 		
 		System.out.println(	driver.findElement(By.id("divpaxinfo")).getText());
 		driver.findElement(By.id("btnclosepaxoption")).click();//click done
+		
+		//UI Enabled or not
+		System.out.println(driver.findElement(By.id("Div1")).getAttribute("style"));
+		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+		System.out.println(driver.findElement(By.id("Div1")).getAttribute("style"));
+		if(driver.findElement(By.id("Div1")).getAttribute("style").contains("1"))
+		{
+			System.out.println("Enabled");
+			Assert.assertTrue(true);
+		}
+		
+		else
+			Assert.assertTrue(false);
 	}
 
 }

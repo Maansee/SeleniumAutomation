@@ -22,6 +22,10 @@ public class DynamicDropdownn {
 		Thread.sleep(2000);
 
 		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']")).click();
+		
+		driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight")).click();
+		
+		
 	}
 
 }
