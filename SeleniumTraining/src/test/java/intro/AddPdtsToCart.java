@@ -15,7 +15,7 @@ public class AddPdtsToCart {
 		ChromeOptions ops = new ChromeOptions();
 		ops.addArguments("--remote-allow-origins=*");
 		WebDriver driver = new ChromeDriver(ops);
-		;
+		
 		
 		int count=0;
 		String[] addItem = {"Cucumber","Tomato","Beetroot","Apple"};
