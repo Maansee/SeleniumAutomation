@@ -2,6 +2,7 @@ package intro;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,10 +12,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class WaitExample {
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws InterruptedException {
 		ChromeOptions ops = new ChromeOptions();
 		ops.addArguments("--remote-allow-origins=*");
 		WebDriver driver = new ChromeDriver(ops);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		String[] itemsNeeded = {"Cucumber","Brocolli","Beetroot"};
 		
@@ -26,6 +29,8 @@ public class WaitExample {
 		driver.findElement(By.cssSelector("img[alt='Cart']")).click();
 		driver.findElement(By.xpath("//button[contains(text(),'PROCEED TO CHECKOUT')]")).click();
 		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
+		driver.findElement(By.cssSelector("button.promoBtn")).click();
+		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());;
 	
 	}
 
