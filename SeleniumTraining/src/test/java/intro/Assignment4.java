@@ -2,18 +2,22 @@ package intro;
 
 import java.util.Iterator;
 import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class actionsDemo2 {
+public class Assignment4 {
 
 	public static void main(String[] args) {
 		WebDriver driver = new ChromeDriver();
+		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.get("https://the-internet.herokuapp.com/");
 		
-		driver.get("https://www.rahulshettyacademy.com/loginpagePractise/");
-		driver.findElement(By.cssSelector("a.blinkingText")).click();
+		driver.findElement(By.cssSelector("a[href='/windows']")).click();
+		
+		String L2 = driver.findElement(By.cssSelector("h3")).getText();
+		
+		driver.findElement(By.cssSelector("a[href='/windows/new']")).click();
 		
 		Set<String> windows =driver.getWindowHandles();
 		Iterator<String> it = windows.iterator();
@@ -21,11 +25,13 @@ public class actionsDemo2 {
 		String childId = it.next();
 		driver.switchTo().window(childId);
 		
-		System.out.println(driver.findElement(By.cssSelector("p.im-para.red")).getText());
-		driver.findElement(By.cssSelector("p.im-para.red")).getText();
-		String mailId = driver.findElement(By.cssSelector(".im-para.red")).getText().split("at")[1].trim().split(" ")[0];
+		String L1 = driver.findElement(By.cssSelector("h3")).getText();
+		
 		driver.switchTo().window(parentId);
-		driver.findElement(By.id("username")).sendKeys(mailId);
+		
+		System.out.println(L1);
+		System.out.println(L2);
+
 
 	}
 
