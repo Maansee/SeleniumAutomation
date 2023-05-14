@@ -24,6 +24,8 @@ public class frameTest {
 		WebElement tgt = driver.findElement(By.id("droppable"));
 		
 		a.dragAndDrop(src, tgt).build().perform();
-	}
+		
+		driver.switchTo().defaultContent();
+		}
 
 }
